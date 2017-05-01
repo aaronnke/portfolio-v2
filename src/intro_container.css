@@ -1,0 +1,28 @@
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+.intro__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-photo {
+  width: 200px;
+  height: 200px;
+}
+
+.intro-tagline {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
