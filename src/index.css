@@ -7,3 +7,28 @@ body {
 .container {
   min-height: 100vh;
 }
+
+.split-pane {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.split-pane__left {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  left: 0;
+}
+
+.split-pane__right {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  right: 0;
+}
+
+.background--blue {
+  background-color: lightblue;
+  height: 100%;
+}
