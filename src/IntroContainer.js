@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Container from './Container';
-import './intro_container.css';
+import './css/intro_container.css';
 
 const ProfilePhoto = props => {
   return (

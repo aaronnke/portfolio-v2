@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Container from './Container';
 import SplitPane from './SplitPane';
-import './about_container.css';
+import './css/about_container.css';
 
-const AboutGraphic = props => {
+const AboutLeft = props => {
   return (
     <div className='background--blue'>
     </div>
@@ -21,13 +21,21 @@ const TextSection = props => {
   )
 }
 
-const AboutText = props => {
+const AboutRight = props => {
   return (
     <div className=''>
       <TextSection title="I'm a web developer based in Singapore.">
-      <p className='text-section__description'>
-        Moved here somewhat recently due to work.
-      </p>
+        <p className='text-section__description'>
+          Moved here somewhat recently due to work.
+        </p>
+      </TextSection>
+      <TextSection title="My skills include:">
+        <div className='chip-container'>
+          <div className='chip'>
+            <img src='ruby.png' className='chip__icon' alt='ruby'/>
+            <span className='chip__text'> Ruby </span>
+          </div>
+        </div>
       </TextSection>
     </div>
   )
@@ -39,10 +47,10 @@ class AboutContainer extends Component {
       <Container>
         <SplitPane
         left={
-          <AboutGraphic/>
+          <AboutLeft/>
         }
         right={
-          <AboutText/>
+          <AboutRight/>
         } />
       </Container>
     )
