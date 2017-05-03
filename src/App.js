@@ -9,7 +9,7 @@ class App extends Component {
       <div className="app">
         <IntroContainer/>
         <AboutContainer/>
-        <WorkContainer/>
+        <WorkContainer company='Grdient' images={['grdient_course.png', 'grdient_home.png', 'grdient_lesson.png']}/>
       </div>
     );
   }

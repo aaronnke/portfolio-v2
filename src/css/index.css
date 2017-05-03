@@ -29,11 +29,23 @@ body {
 }
 
 .background--blue {
-  background-color: lightblue;
+  background-color: #448AFF;
   height: 100%;
 }
 
 .background--red {
-  background-color: pink;
+  background-color: #f7484e;
   height: 100%;
+}
+
+.section-title {
+  z-index: 2;
+  color: rgba(0,0,0,0.54);
+  font-weight: 100;
+  font-size: 24px;
+  margin: 0;
+  position: absolute;
+  top: 5%;
+  text-align: center;
+  width: 100%;
 }

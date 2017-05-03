@@ -6,6 +6,7 @@ import './css/about_container.css';
 const AboutLeft = props => {
   return (
     <div className='background--blue'>
+      <h6 className='section-title'>ABOUT</h6>
     </div>
   )
 }
