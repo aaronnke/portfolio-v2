@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import IntroContainer from './IntroContainer';
 import AboutContainer from './AboutContainer';
-import WorkContainer from './WorkContainer';
+import GrdientContainer from './GrdientContainer';
+import IntuteContainer from './IntuteContainer';
 
 class App extends Component {
   render() {
@@ -9,7 +10,8 @@ class App extends Component {
       <div className="app">
         <IntroContainer/>
         <AboutContainer/>
-        <WorkContainer company='Grdient' images={['grdient_course.png', 'grdient_home.png', 'grdient_lesson.png']}/>
+        <GrdientContainer/>
+        <IntuteContainer/>
       </div>
     );
   }

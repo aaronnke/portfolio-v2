@@ -37,4 +37,29 @@
   bottom: 10%;
   width: 100%;
   text-align: center;
+  text-decoration: none;
+}
+
+.work-section {
+  padding-left: 48px;
+  padding-right: 48px;
+  margin-bottom: 48px;
+  margin-top: 48px;
+}
+
+.work-section__title {
+  margin: 0 0 12px 0;
+}
+
+.work-section__text {
+  margin: 0;
+}
+
+.work-section__points {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.work-section__point {
+  line-height: 1.5;
 }

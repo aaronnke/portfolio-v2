@@ -15,7 +15,7 @@ class WorkLeft extends Component {
     let screens = this.props.images;
     let index = 0;
     this.interval = window.setInterval(() => {
-      index > 1 ? index = 0 : index++;
+      index >= screens.length - 1 ? index = 0 : index++;
       this.setState(() => {
         return {
           screen: screens[index]
@@ -36,7 +36,7 @@ class WorkLeft extends Component {
           <div style={{backgroundImage: 'url(' + this.state.screen + ')'}} className='laptop__screen'>
           </div>
         </div>
-        <h3 className='company-name'>{this.props.company}</h3>
+        <a className='company-name' href={this.props.website} target="_blank" >{this.props.company}</a>
       </div>
     )
   }
@@ -48,9 +48,23 @@ const WorkSection = props => {
       <h3 className='work-section__title'>
         {props.title}
       </h3>
-      <p className='work-section__description'>
-        {props.text}
-      </p>
+      {props.text &&
+        <p className='work-section__text'>
+          {props.text}
+        </p>
+      }
+      {props.points &&
+        <ul className="work-section__points">
+          {props.points.map((point, index) => {
+            return (
+              <li className='work-section__point' key={index}>
+                {point}
+              </li>
+            )
+          })}
+        </ul>
+      }
+
     </div>
   )
 }
@@ -58,33 +72,33 @@ const WorkSection = props => {
 const WorkRight = props => {
   return (
     <div>
-      <WorkSection
-        title="My role:"
-        text="Web developer."
-      />
-      <WorkSection
-        title="My tasks:"
-        text="When I came in I did pair programming with a senior"
-      />
-      <WorkSection
-        title="My role:"
-        text="Web developer."
-      />
+      {props.stories.map((story, index) => {
+        return (
+          <WorkSection key={index} title={story['title']} text={story['text']} points={story['points']} />
+        )
+      })}
     </div>
   )
 }
 
 class WorkContainer extends Component {
   render() {
+    let leftItem = null;
+    let rightItem = null;
+
+    if (this.props.flipsides) {
+      leftItem = <WorkRight stories={this.props.stories} />
+      rightItem = <WorkLeft company={this.props.company} website={this.props.website} images={this.props.images} />
+    }
+    else {
+      leftItem = <WorkLeft company={this.props.company} website={this.props.website} images={this.props.images} />
+      rightItem = <WorkRight stories={this.props.stories} />
+    }
     return (
       <Container>
         <SplitPane
-        left={
-          <WorkLeft company={this.props.company} images={this.props.images}/>
-        }
-        right={
-          <WorkRight/>
-        } />
+        left={leftItem}
+        right={rightItem} />
       </Container>
     )
   }
