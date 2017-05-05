@@ -11,10 +11,10 @@ const AboutLeft = props => {
   )
 }
 
-const TextSection = props => {
+const AboutSection = props => {
   return (
-    <div className='text-section'>
-      <h3 className='text-section__title'>
+    <div className='about-section'>
+      <h3 className='about-section__title'>
         {props.title}
       </h3>
       {props.children}
@@ -22,22 +22,40 @@ const TextSection = props => {
   )
 }
 
+const Tile = props => {
+  return (
+    <div className='tile'>
+      <img src={props.image} className='tile__icon' alt={props.name}/>
+      <p className='tile__name'> {props.name} </p>
+    </div>
+  )
+}
+
 const AboutRight = props => {
   return (
     <div className=''>
-      <TextSection title="I'm a web developer based in Singapore.">
-        <p className='text-section__description'>
-          Moved here somewhat recently due to work.
+      <AboutSection title="I'm a web developer based in Singapore.">
+        <p className='about-section__text'>
+          Moved here somewhat recently due to work. Full stack. Rails, but willing to pick up new language / frameworks too. Especially since learning the powers of React.
         </p>
-      </TextSection>
-      <TextSection title="My skills include:">
-        <div className='chip-container'>
-          <div className='chip'>
-            <img src='ruby.png' className='chip__icon' alt='ruby'/>
-            <span className='chip__text'> Ruby </span>
-          </div>
+      </AboutSection>
+      <AboutSection title="I'm looking to:">
+        <p className='about-section__text'>
+          Help push the world forward. Write (and learn to write) clean, scalable code using modern technologies. Pick up new things, move fast, work hard.
+        </p>
+      </AboutSection>
+      <AboutSection title="I know these things:">
+        <div className='tile-container'>
+          <Tile image='ruby.png' name='Ruby'/>
+          <Tile image='rails.png' name='Rails'/>
+          <Tile image='html.png' name='HTML'/>
+          <Tile image='scss.png' name='SCSS'/>
+          <Tile image='javascript.png' name='JavaScript'/>
+          <Tile image='react.png' name='React'/>
+          <Tile image='python.png' name='Python'/>
+          <Tile image='aws.png' name='AWS'/>
         </div>
-      </TextSection>
+      </AboutSection>
     </div>
   )
 }

@@ -5,7 +5,8 @@ body {
 }
 
 .container {
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 730px;
 }
 
 .split-pane {
