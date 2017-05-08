@@ -1,0 +1,13 @@
+.background--projects-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-right__title {
+  font-family: 'Poiret One', cursive;
+  color: white;
+  font-size: 72px;
+  margin: 0;
+  width: 100%;
+}

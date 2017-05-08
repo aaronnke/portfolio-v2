@@ -29,7 +29,6 @@ class WorkLeft extends Component {
   render() {
     return (
       <div className='background--red'>
-        <h6 className='section-title'>WORK</h6>
         <div className='laptop-container'>
           <div className='laptop'>
           </div>

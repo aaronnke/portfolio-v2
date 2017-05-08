@@ -5,6 +5,8 @@ import GrdientContainer from './GrdientContainer';
 import IntuteContainer from './IntuteContainer';
 import EmilyContainer from './EmilyContainer';
 import LSOContainer from './LSOContainer';
+import ProjectsContainer from './ProjectsContainer';
+import ContactContainer from './ContactContainer';
 
 class App extends Component {
   render() {
@@ -16,6 +18,8 @@ class App extends Component {
         <IntuteContainer/>
         <EmilyContainer/>
         <LSOContainer/>
+        <ProjectsContainer/>
+        <ContactContainer/>
       </div>
     );
   }

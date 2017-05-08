@@ -1,0 +1,47 @@
+.background--contact-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-left__title {
+  font-family: 'Poiret One', cursive;
+  color: white;
+  font-size: 72px;
+  margin: 0;
+  width: 100%;
+}
+
+.contact-right {
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.contact-text {
+  margin: 0;
+}
+
+.contact-tagline {
+  font-size: 16px;
+}
+
+.contact-name {
+  margin-top: 48px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.contact-position {
+  font-size: 18px;
+  font-weight: 100;
+  margin-top: 12px;
+}
+
+.contact-email {
+  font-size: 18px;
+  font-weight: 100;
+  color: blue;
+  text-decoration: underline;
+}

@@ -5,8 +5,10 @@ import './css/about_container.css';
 
 const AboutLeft = props => {
   return (
-    <div className='background--blue'>
-      <h6 className='section-title'>ABOUT</h6>
+    <div className='background--blue background--about-left'>
+      <div className='about-left'>
+        <h6 className='about-left__title'>ABOUT</h6>
+      </div>
     </div>
   )
 }
@@ -36,7 +38,7 @@ const AboutRight = props => {
     <div className=''>
       <AboutSection title="I'm a web developer based in Singapore.">
         <p className='about-section__text'>
-          Moved here somewhat recently due to work. Full stack. Rails, but willing to pick up new language / frameworks too. Especially since learning the powers of React.
+          Moved here somewhat recently for work. Full stack. Rails, and trying pick up new languages / frameworks too. Especially since learning the powers of React.
         </p>
       </AboutSection>
       <AboutSection title="I'm looking to:">
