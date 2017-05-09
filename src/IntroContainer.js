@@ -65,7 +65,7 @@ class Tagline extends Component {
   render() {
     return (
       <h3 className='intro-tagline'>
-        I'm Aaron Ng, <br /> a web developer who loves {this.state.text}
+        Hello. I'm Aaron Ng, <br /> a web developer who loves {this.state.text}
       </h3>
     )
   }

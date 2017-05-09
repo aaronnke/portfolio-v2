@@ -5,7 +5,7 @@ import './css/contact_container.css';
 
 const ContactLeft = props => {
   return (
-    <div className='background--green background--contact-left'>
+    <div className='background--brown background--contact-left'>
       <div>
         <h6 className='contact-left__title'>CONTACT</h6>
       </div>
