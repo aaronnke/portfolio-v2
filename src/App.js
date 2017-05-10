@@ -9,112 +9,142 @@ import ProjectsContainer from './ProjectsContainer';
 import ContactContainer from './ContactContainer';
 
 class App extends Component {
-  componentDidMount() {
-    const pageHeight = window.innerHeight;
-    var isScrolling = false;
-    var prevHeight = 0;
-
-    function scrollToward(scrollDestination, scrollDuration) {
-      var scrollStep = (scrollDestination - window.scrollY) / (scrollDuration / 25);
-      var scrollInterval = setInterval(() => {
-        let scrollY = window.scrollY;
-        if ( scrollY !== scrollDestination ) {
-          let miniScroll = scrollY + scrollStep;
-          window.scroll(0, miniScroll);
-
-          if ((scrollStep > 0 && scrollY > scrollDestination - 100)
-              || (scrollStep < 0 && scrollY < scrollDestination + 100)) {
-            window.scroll(0, scrollDestination);
-          }
-        }
-        else {
-          isScrolling = false;
-          clearInterval(scrollInterval);
-        }
-      }, 25);
+  constructor(props) {
+    super(props);
+    this.state = {
+      isScrolling: false,
+      prevHeight: 0,
+      pageHeight: window.innerHeight
     }
 
+    this.handleAboutClick = this.handleAboutClick.bind(this);
+    this.handleWorkClick = this.handleWorkClick.bind(this);
+    this.handleContactClick = this.handleContactClick.bind(this);
+  }
+
+  scrollToward(scrollDestination, scrollDuration) {
+    if (!this.state.isScrolling && Math.abs(window.pageYOffset - this.state.prevHeight) > 20) {
+      this.setState(() => {
+        return {
+          isScrolling: true,
+        }
+      })
+    }
+    var scrollStep = (scrollDestination - window.scrollY) / (scrollDuration / 25);
+    var scrollInterval = setInterval(() => {
+      let scrollY = window.scrollY;
+      if ( scrollY !== scrollDestination ) {
+        if ((scrollStep > 0 && scrollY > scrollDestination - 100)
+            || (scrollStep < 0 && scrollY < scrollDestination + 100)) {
+          window.scroll(0, scrollDestination);
+          clearInterval(scrollInterval);
+          this.setState(() => {
+            return {
+              isScrolling: false,
+              prevHeight: scrollDestination
+            }
+          })
+        }
+        else {
+          let miniScroll = scrollY + scrollStep;
+          window.scroll(0, miniScroll);
+        }
+      }
+      else {
+        clearInterval(scrollInterval);
+        this.setState(() => {
+          return {
+            isScrolling: false,
+            prevHeight: scrollDestination
+          }
+        })
+      }
+    }, 25);
+  }
+
+  handleAboutClick() {
+    this.scrollToward(this.state.pageHeight, 500);
+  }
+
+  handleWorkClick() {
+    this.scrollToward(this.state.pageHeight*2, 500);
+  }
+
+  handleContactClick() {
+    this.scrollToward(this.state.pageHeight*7, 500);
+  }
+
+  shouldComponentUpdate() {
+    return false;
+  }
+
+  componentDidMount() {
+    const pageHeight = this.state.pageHeight;
     var timer;
 
-    window.addEventListener('scroll', function(e) {
+    window.addEventListener('scroll', () => {
       if(timer) {
     		window.clearTimeout(timer);
     	}
 
-    	timer = window.setTimeout(function() {
-        if (!isScrolling && Math.abs(window.pageYOffset - prevHeight) > 50) {
-          isScrolling = true;
-          let scrollHeight = window.pageYOffset;
+    	timer = window.setTimeout(() => {
+        let scrollHeight = window.pageYOffset;
+        let prevHeight = this.state.prevHeight;
 
-          if (scrollHeight < pageHeight && scrollHeight > prevHeight) {
-            scrollToward(pageHeight, 500);
-            prevHeight = pageHeight;
-
-          }
-          else if (scrollHeight < pageHeight && scrollHeight < prevHeight) {
-            scrollToward(0, 500);
-            prevHeight = 0;
-          }
-          else if (scrollHeight < pageHeight*2 && scrollHeight > prevHeight) {
-            scrollToward(pageHeight*2, 500);
-            prevHeight = pageHeight*2;
-          }
-          else if (scrollHeight < pageHeight*2 && scrollHeight < prevHeight) {
-            scrollToward(pageHeight, 500);
-            prevHeight = pageHeight;
-          }
-          else if (scrollHeight < pageHeight*3 && scrollHeight > prevHeight) {
-            scrollToward(pageHeight*3, 500);
-            prevHeight = pageHeight*3;
-          }
-          else if (scrollHeight < pageHeight*3 && scrollHeight < prevHeight) {
-            scrollToward(pageHeight*2, 500);
-            prevHeight = pageHeight*2;
-          }
-          else if (scrollHeight < pageHeight*4 && scrollHeight > prevHeight) {
-            scrollToward(pageHeight*4, 500);
-            prevHeight = pageHeight*4;
-          }
-          else if (scrollHeight < pageHeight*4 && scrollHeight < prevHeight) {
-            scrollToward(pageHeight*3, 500);
-            prevHeight = pageHeight*3;
-          }
-          else if (scrollHeight < pageHeight*5 && scrollHeight > prevHeight) {
-            scrollToward(pageHeight*5, 500);
-            prevHeight = pageHeight*5;
-          }
-          else if (scrollHeight < pageHeight*5 && scrollHeight < prevHeight) {
-            scrollToward(pageHeight*4, 500);
-            prevHeight = pageHeight*4;
-          }
-          else if (scrollHeight < pageHeight*6 && scrollHeight > prevHeight) {
-            scrollToward(pageHeight*6, 500);
-            prevHeight = pageHeight*6;
-          }
-          else if (scrollHeight < pageHeight*6 && scrollHeight < prevHeight) {
-            scrollToward(pageHeight*5, 500);
-            prevHeight = pageHeight*5;
-          }
-          else if (scrollHeight < pageHeight*7 && scrollHeight > prevHeight) {
-            scrollToward(pageHeight*7, 500);
-            prevHeight = pageHeight*7;
-          }
-          else if (scrollHeight < pageHeight*7 && scrollHeight < prevHeight) {
-            scrollToward(pageHeight*6, 500);
-            prevHeight = pageHeight*6;
-          }
-          else {
-            isScrolling = false;
-          }
+        if (scrollHeight < pageHeight && scrollHeight > prevHeight) {
+          this.scrollToward(pageHeight, 500);
+        }
+        else if (scrollHeight < pageHeight && scrollHeight < prevHeight) {
+          this.scrollToward(0, 500);
+        }
+        else if (scrollHeight < pageHeight*2 && scrollHeight > prevHeight) {
+          this.scrollToward(pageHeight*2, 500);
+        }
+        else if (scrollHeight < pageHeight*2 && scrollHeight < prevHeight) {
+          this.scrollToward(pageHeight, 500);
+        }
+        else if (scrollHeight < pageHeight*3 && scrollHeight > prevHeight) {
+          this.scrollToward(pageHeight*3, 500);
+        }
+        else if (scrollHeight < pageHeight*3 && scrollHeight < prevHeight) {
+          this.scrollToward(pageHeight*2, 500);
+        }
+        else if (scrollHeight < pageHeight*4 && scrollHeight > prevHeight) {
+          this.scrollToward(pageHeight*4, 500);
+        }
+        else if (scrollHeight < pageHeight*4 && scrollHeight < prevHeight) {
+          this.scrollToward(pageHeight*3, 500);
+        }
+        else if (scrollHeight < pageHeight*5 && scrollHeight > prevHeight) {
+          this.scrollToward(pageHeight*5, 500);
+        }
+        else if (scrollHeight < pageHeight*5 && scrollHeight < prevHeight) {
+          this.scrollToward(pageHeight*4, 500);
+        }
+        else if (scrollHeight < pageHeight*6 && scrollHeight > prevHeight) {
+          this.scrollToward(pageHeight*6, 500);
+        }
+        else if (scrollHeight < pageHeight*6 && scrollHeight < prevHeight) {
+          this.scrollToward(pageHeight*5, 500);
+        }
+        else if (scrollHeight < pageHeight*7 && scrollHeight > prevHeight) {
+          this.scrollToward(pageHeight*7, 500);
+        }
+        else if (scrollHeight < pageHeight*7 && scrollHeight < prevHeight) {
+          this.scrollToward(pageHeight*6, 500);
         }
     	}, 50);
     });
-
   }
+
   render() {
     return (
       <div className="app">
-        <IntroContainer/>
+        <IntroContainer
+          handleAboutClick={this.handleAboutClick}
+          handleWorkClick={this.handleWorkClick}
+          handleContactClick={this.handleContactClick}
+        />
         <AboutContainer/>
         <GrdientContainer/>
         <IntuteContainer/>

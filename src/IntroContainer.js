@@ -4,8 +4,9 @@ import './css/intro_container.css';
 
 const ProfilePhoto = props => {
   return (
-    <div className='intro__container'>
-      <img src='display_photo.png' className='intro-photo' alt='Aaron' />
+    <div>
+      <div className='IntroPhotoSpinner'></div>
+      <div className='IntroPhoto'></div>
     </div>
   )
 }
@@ -64,20 +65,48 @@ class Tagline extends Component {
   }
   render() {
     return (
-      <h3 className='intro-tagline'>
-        Hello. I'm Aaron Ng, <br /> a web developer who loves {this.state.text}
-      </h3>
+      <div>
+        <h3 className='IntroTagline IntroTagline--center'>
+          Hello. I'm Aaron Ng,
+        </h3>
+        <h3 className='IntroTagline'>
+          a web developer who loves {this.state.text}
+        </h3>
+      </div>
     )
   }
+}
+
+const Navigator = props => {
+  return (
+    <div className='Navigator'>
+      <span className='Navigator__item' onClick={props.handleAboutClick}> ABOUT </span>
+      <span className='Navigator__filler'>/</span>
+      <span className='Navigator__item' onClick={props.handleWorkClick}> WORK </span>
+      <span className='Navigator__filler'>/</span>
+      <span className='Navigator__item' onClick={props.handleContactClick}> CONTACT </span>
+    </div>
+  )
 }
 
 class IntroContainer extends Component {
   render() {
     return (
       <Container>
-        <div className='intro'>
-          <ProfilePhoto />
-          <Tagline options={['Ruby.', 'Rails.', 'React.', 'JavaScript.', 'Material.', '@dhh.', 'Elon Musk.', 'exploring.', 'learning.']} />
+        <div className='Intro'>
+          <div className='Intro__container'>
+            <div className='Intro__photo-container'>
+              <ProfilePhoto />
+            </div>
+            <div className='Intro__text-container'>
+              <Tagline options={['Ruby.', 'Rails.', 'React.', 'JavaScript.', 'Material.', '@dhh.', 'Elon Musk.', 'exploring.', 'learning.']} />
+            </div>
+          </div>
+          <Navigator
+            handleAboutClick={this.props.handleAboutClick}
+            handleWorkClick={this.props.handleWorkClick}
+            handleContactClick={this.props.handleContactClick}
+          />
         </div>
       </Container>
     )

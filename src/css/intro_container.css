@@ -1,4 +1,4 @@
-.intro {
+.Intro {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,23 +6,79 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #fafafa;
+  background-color: #2d2d3c;
 }
 
-.intro__container {
+.Intro__container {
+  width: 100%;
+  padding-bottom: 72px;
+}
+
+.Intro__photo-container {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.intro-photo {
-  width: 200px;
-  height: 200px;
-}
-
-.intro-tagline {
-  margin: 0;
-  text-align: center;
+.Intro__text-container {
+  margin-top: 72px;
   width: 100%;
+}
+
+.IntroPhoto {
+  width: 160px;
+  height: 160px;
+  background-image: url('/display_photo.png');
+  background-size: cover;
+  position: relative;
+}
+
+.IntroPhotoSpinner {
+  content: '';
+  width: 168px;
+  height: 168px;
+  position: absolute;
+  display: block;
+  background: linear-gradient(to bottom right, rgba(64, 196, 255, 1), rgba(64, 196, 255, 0));
+  border-radius: 50%;
+  margin-top: -4px;
+  margin-left: -4px;
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.IntroTagline {
+  margin: 0;
+  padding-left: calc(50% - 186px);
+  font-weight: 300;
+  font-size: 24px;
+  color: white;
+}
+
+.IntroTagline--center {
+  text-align: center;
+  padding-left: 0;
+}
+
+.Navigator {
+  position: absolute;
+  bottom: 24px;
+}
+
+.Navigator__item {
+  color: #40C4FF;
+  padding: 12px;
+}
+
+.Navigator__item:hover {
+  color: #80D8FF;
+  cursor: pointer;
+}
+
+.Navigator__filler {
+  color: #40C4FF;
 }
