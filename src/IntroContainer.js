@@ -99,7 +99,7 @@ class IntroContainer extends Component {
               <ProfilePhoto />
             </div>
             <div className='Intro__text-container'>
-              <Tagline options={['Ruby.', 'Rails.', 'React.', 'JavaScript.', 'Material.', '@dhh.', 'Elon Musk.', 'exploring.', 'learning.']} />
+              <Tagline options={['Ruby.', 'Rails.', 'React.', 'JavaScript.', 'Material.', '@dhh.', 'Musk.', 'moonshots.', 'learning.']} />
             </div>
           </div>
           <Navigator

@@ -32,30 +32,30 @@ body {
 }
 
 .background--blue {
-  background-color: #2979FF;
+  background-color: #1976D2;
   height: 100%;
 }
 
 .background--blue:hover {
-  background-color: #448AFF;
+  background-color: #2196F3;
 }
 
 .background--red {
-  background-color: #FF1744;
+  background-color: #E53935;
   height: 100%;
 }
 
 .background--red:hover {
-  background-color: #FF5252;
+  background-color: #EF5350;
 }
 
 .background--green {
-  background-color: #00C853;
+  background-color: #2E7D32;
   height: 100%;
 }
 
 .background--green:hover {
-  background-color: #00E676;
+  background-color: #43A047;
 }
 
 .background--brown {
